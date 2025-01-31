@@ -1,34 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Sun } from "lucide-react"
+import { Slider } from "@/components/ui/slider"
+import { Graph } from "./Graph";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="w-full h-screen bg-blue-500 gap-2 flex flex-col items-center text-white">
+      <h2 className="text-2xl font-bold mt-5">Philadelphia</h2>
+      <Sun className="w-16 h-16 mt-5" />
+      <h1 className="text-[130px] pl-5 -mt-10">46°</h1>
+      <div className="flex items-center justify-center w-2/3 gap-4 -mt-6 mb-20">
+        <p>37°</p>
+        <Slider defaultValue={[66]} max={100} step={1} className="w-2/3" />
+        <p>51°</p>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      <Graph />
+    </div>
   )
 }
 
